@@ -1,1 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support Texas First Responders</title>
+  <style>
+    /* CSS Variables for easy theming */
+    :root {
+      --primary-color: #e63946;
+      --secondary-color: #f1faee;
+      --accent-color: #1d3557;
+      --background-dark: #1b1b1b;
+      --light-text: #ffffff;
+      --cta-color: #fca311;
+      --font-family: 'Segoe UI', sans-serif;
+      --max-width: 1200px;
+      --hero-bg-image: url('images/hero.jpg'); /* Replace path as needed */
+    }
+
+    /* Global Reset & Base Styles */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-family); background: var(--secondary-color); color: var(--accent-color); line-height: 1.6; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; }
+    .container { width: 90%; max-width: var(--max-width); margin: auto; }
+
+    /* Buttons */
+    .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: bold; text-align: center; transition: opacity 0.3s; }
+    .btn-primary { background: var(--primary-color); color: var(--light-text); }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-secondary { background: var(--cta-color); color: var(--background-dark); }
+    .btn-secondary:hover { opacity: 0.9; }
+
+    /* HERO SECTION: Full-screen bg image with dark overlay */
+    header.hero {
+      position: relative;
+      background: var(--hero-bg-image) center/cover no-repeat;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    header.hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+    }
+    header.hero .container {
+      position: relative;
+      text-align: center;
+      color: var(--light-text);
+    }
+    header.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
+    header.hero p { font-size: 1.25rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+    /* SECTION TITLES */
+    section { padding: 4rem 0; }
+    .section-title { text-align: center; margin-bottom: 2rem; font-size: 2.25rem; color: var(--primary-color); }
+
+    /* ANIMATED COUNTERS */
+    .counters { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 2rem; text-align: center; }
+    .counter { flex: 1 1 200px; }
+    .counter h3 { font-size: 2.5rem; color: var(--primary-color); }
+
+    /* GRID & FLEX LAYOUTS */
+    .grid-2 { display: flex; flex-wrap: wrap; gap: 2rem; }
+    .grid-2 > div { flex: 1 1 300px; }
+
+    /* IMAGE GALLERY */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; }
+
+    /* STORIES: Alternating layout */
+    .story { display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; }
+    .story:nth-child(even) { flex-direction: row-reverse; }
+    .story img { flex: 1 1 300px; border-radius: 8px; }
+    .story .text { flex: 2 1 400px; }
+
+    /* TESTIMONIAL SLIDER */
+    .testimonial-slider { display: flex; overflow-x: auto; gap: 1rem; padding: 1rem 0; }
+    .testimonial { background: var(--background-dark); color: var(--light-text); padding: 1.5rem; border-radius: 8px; min-width: 250px; }
+
+    /* FAQ ACCORDION */
+    .faq details { margin-bottom: 1rem; }
+
+    /* FOOTER */
+    footer { background: var(--accent-color); color: var(--light-text); text-align: center; padding: 2rem 1rem; }
+
+    /* MOBILE-FIRST RESPONSIVE */
+    @media (max-width: 768px) {
+      header.hero h1 { font-size: 2.25rem; }
+      header.hero p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- BOLD HERO -->
+  <header class="hero">
+    <div class="container">
+      <h1>Stand with Texas' Heroes</h1>
+      <p>Your support equips the brave firefighters, EMTs, and officers who safeguard our communities every day.</p>
+      <a href="https://your-stripe-payment-link.com" class="btn btn-primary">Donate Now</a>
+    </div>
+  </header>
+
+  <!-- ANIMATED COUNTERS -->
+  <section>
+    <div class="container counters">
+      <div class="counter"><h3 data-target="750">0</h3><p>Lives Saved</p></div>
+      <div class="counter"><h3 data-target="350">0</h3><p>Responders Supported</p></div>
+      <div class="counter"><h3 data-target="500">0</h3><p>Equipment Distributed</p></div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION (GRID LAYOUT) -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Why We Exist</h2>
+      <div class="grid-2">
+        <div>
+          <p>Texas’ first responders face hazards daily—from wildfires to medical crises. Yet many departments lack funding for the latest gear and mental health resources.</p>
+          <p>Our mission: Unite Texans to ensure every responder has the support, equipment, and training they deserve.</p>
+        </div>
+        <div><img src="images/about.jpg" alt="Texas First Responders"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIVID IMAGE GALLERY -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Behind the Scenes</h2>
+      <div class="gallery">
+        <img src="images/gallery1.jpg" alt="Firefighters training">
+        <img src="images/gallery2.jpg" alt="EMT on duty">
+        <img src="images/gallery3.jpg" alt="Police community support">
+        <img src="images/gallery4.jpg" alt="Crew gearing up">
+      </div>
+    </div>
+  </section>
+
+  <!-- FRONTLINE STORIES -->
+  <section style="background: var(--primary-color); color: var(--light-text)">
+    <div class="container">
+      <h2 class="section-title">Stories from the Frontline</h2>
+      <div class="story">
+        <img src="images/story1.jpg" alt="Houston Firefighter">
+        <div class="text">
+          <h3>Houston — Firefighter Davis</h3>
+          <p>"When flood waters rose, our old pumps failed. Your gift delivered new pumps within days, saving homes and lives."</p>
+        </div>
+      </div>
+      <div class="story">
+        <img src="images/story2.jpg" alt="Dallas EMT">
+        <div class="text">
+          <h3>Dallas — EMT Ramirez</h3>
+          <p>"After back-to-back calls, stress took a toll. Thanks to your support, our wellness program kept us ready."</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section>
+    <div class="container" style="text-align:center">
+      <h2 class="section-title">Make Your Impact</h2>
+      <a href="https://your-stripe-payment-link.com" class="btn btn-primary">One-Time Gift</a>
+      <a href="https://your-stripe-recurring-link.com" class="btn btn-secondary">Monthly Support</a>
+      <a href="https://your-coinbase-commerce-link.com" class="btn btn-secondary">Donate Crypto</a>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL SLIDER -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">What Texans Are Saying</h2>
+      <div class="testimonial-slider">
+        <div class="testimonial"><p>"Powerful mission—I feel connected to the cause."</p><small>— Sarah, Austin</small></div>
+        <div class="testimonial"><p>"Transparent and impactful."</p><small>— Michael, Dallas</small></div>
+        <div class="testimonial"><p>"My monthly donation means everything."</p><small>— Jessica, Houston</small></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ ACCORDION -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">FAQs</h2>
+      <div class="faq">
+        <details><summary>Are donations tax-deductible?</summary><p>We are applying for 501(c)(3) status. All funds go to vetted Texas responder programs.</p></details>
+        <details><summary>How quickly does support arrive?</summary><p>Within 3-4 weeks, with delivery updates via email.</p></details>
+        <details><summary>Can I choose where my gift goes?</summary><p>Yes—add a note at checkout specifying gear, training, or wellness support.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Texas First Responders Support Fund</p>
+    <p>Email: donations@texasrespondersupport.org | Phone: (555) 123-4567</p>
+  </footer>
+
+  <!-- SCRIPTS: COUNTER ANIMATION -->
+  <script>
+    const counters = document.querySelectorAll('.counter h3');
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / 200;
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 10);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+  </script>
+</body>
+</html>
 
