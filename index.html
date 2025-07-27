@@ -32,28 +32,52 @@
     .btn-secondary { background: var(--cta-color); color: var(--background-dark); }
     .btn-secondary:hover { opacity: 0.9; }
 
-    /* HERO SECTION: Full-screen bg image with dark overlay */
-    header.hero {
-      position: relative;
-      background: var(--hero-bg-image) center/cover no-repeat;
-      height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    header.hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.5);
-    }
-    header.hero .container {
-      position: relative;
-      text-align: center;
-      color: var(--light-text);
-    }
-    header.hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-    header.hero p { font-size: 1.25rem; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+/* HERO SECTION: Full-screen bg image with dark overlay */
+header.hero {
+  position: relative;
+  /* break out the shorthand for precise control: */
+  background-image: var(--hero-bg-image);
+  background-position: center center;   /* ensure focal point is centered */
+  background-size: cover;              /* fill the container */
+  background-repeat: no-repeat;
+  height: 80vh;                        /* 80% of viewport height */
+  min-height: 500px;                   /* prevent it from collapsing on very short screens */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Dark overlay to keep text legible */
+header.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+
+/* Container sits above the overlay */
+header.hero .container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: var(--light-text);
+  width: 90%;
+  max-width: var(--max-width);
+}
+
+/* Typography tweaks */
+header.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+header.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
     /* SECTION TITLES */
     section { padding: 4rem 0; }
