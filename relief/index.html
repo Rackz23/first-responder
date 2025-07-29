@@ -5,31 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Texas First Responders Relief</title>
   <style>
-    body { margin:0; padding:0; background:#f4f4f4; font-family:Arial, sans-serif; color:#333; }
-    .container { max-width:700px; margin:50px auto; padding:20px; background:#fff; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.1); text-align:center; }
-    .hero { width:100%; height:auto; border-radius:6px 6px 0 0; display:block; }
-    h1 { font-size:28px; margin:20px 0; line-height:1.3; color:#222; }
-    p { font-size:16px; line-height:1.6; margin:0 0 20px; }
-    .cta-button { display:inline-block; background:#d35400; color:#fff; text-decoration:none; font-size:18px; padding:14px 32px; border-radius:4px; margin:20px 0; }
-    .note { font-size:14px; color:#555; margin-top:10px; }
-    @media (max-width:600px) {
-      .container { margin:20px 10px; padding:15px; }
-      h1 { font-size:24px; }
-      p { font-size:14px; }
-      .cta-button { padding:12px 24px; font-size:16px; }
+    :root {
+      --font-base: 'Helvetica Neue', Arial, sans-serif;
+      --color-bg: #1a1a1a;
+      --color-overlay: rgba(0, 0, 0, 0.6);
+      --color-container: #ffffff;
+      --color-primary: #e74c3c;
+      --color-light: #ffffff;
+      --color-text: #f4f4f4;
+      --max-width: 720px;
+      --radius: 8px;
+      --spacing: 16px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: url('https://frontlineheroesrelief.org/images/texas-bg.jpg') no-repeat center center/cover;
+      font-family: var(--font-base);
+      color: var(--color-text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing);
+    }
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--color-overlay);
+      z-index: 1;
+    }
+    .container {
+      position: relative;
+      z-index: 2;
+      background: var(--color-container);
+      color: #333;
+      max-width: var(--max-width);
+      width: 100%;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .hero {
+      width: 100%;
+      display: block;
+    }
+    .content {
+      padding: calc(var(--spacing) * 2);
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.25rem;
+      color: #222;
+      margin-bottom: var(--spacing);
+      line-height: 1.2;
+    }
+    p {
+      font-size: 1rem;
+      margin-bottom: var(--spacing);
+      line-height: 1.6;
+    }
+    .list {
+      text-align: left;
+      margin: var(--spacing) 0;
+      padding-left: calc(var(--spacing) * 1.5);
+    }
+    .list li {
+      margin-bottom: var(--spacing);
+    }
+    .cta {
+      display: inline-block;
+      background: var(--color-primary);
+      color: var(--color-light);
+      text-decoration: none;
+      font-size: 1.125rem;
+      padding: 14px 36px;
+      border-radius: var(--radius);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      animation: pulse 2s infinite;
+    }
+    .cta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+      50% { box-shadow: 0 6px 16px rgba(231,76,60,0.6); }
+    }
+    .footer {
+      font-size: 0.875rem;
+      color: #777;
+      padding: var(--spacing);
+      text-align: center;
+      background: #fafafa;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.75rem; }
+      .cta { width: 100%; padding: 12px 0; }
     }
   </style>
 </head>
 <body>
+  <div class="overlay"></div>
   <div class="container">
-    <img src="https://frontlineheroesrelief.org/images/texas-responders.jpg"
-         alt="Texas First Responders" class="hero">
-    <h1>After the Storms and Heartbreak, Texas Heroes Need Relief</h1>
-    <p>In the wake of devastating floods and relentless wildfires, Texas first responders ran toward danger to protect our communities. They rescued neighbors, comforted families, and stood strong when disaster struck.</p>
-    <p>Now, these everyday heroes need our help to recover. Your support provides rest kits, mental-health resources, and essential supplies so they can heal—and be ready for the next call.</p>
-    <!-- if you want to point directly at Square, drop your link here -->
-    <a href="https://square.link/u/ZrBbAr3C" class="cta-button">Send Relief Now</a>
-    <p class="note">Any amount helps. Thank you for standing with those who protect us.</p>
+    <img src="https://frontlineheroesrelief.org/images/texas-responders.jpg" alt="Texas First Responders" class="hero">
+    <div class="content">
+      <h1>After Harvey’s Floods & Amarillo’s Wildfires, It’s Our Turn to Help</h1>
+      <p>When Texas faced its darkest hours, our first responders ran toward the danger to save lives. Now they need relief and resources to recover.</p>
+      <ul class="list">
+        <li>☑️ Rest & hydration kits for exhausted crews</li>
+        <li>☑️ Mental-health support & counseling</li>
+        <li>☑️ Replacement gear: helmets, radios, and protective clothing</li>
+      </ul>
+      <a href="https://square.link/u/ZrBbAr3C" class="cta">Send Relief Now</a>
+    </div>
+  </div>
+  <div class="footer">
+    &copy; 2025 Lone Star First Responders Relief Fund — Austin, TX<br>
+    Questions? <a href="mailto:support@frontlineheroesrelief.org">support@frontlineheroesrelief.org</a>
   </div>
 </body>
 </html>
