@@ -2,35 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Texas First Responders Relief</title>
   <style>
     :root {
       --font-base: 'Helvetica Neue', Arial, sans-serif;
-      --color-bg: #1a1a1a;
-      --color-overlay: rgba(0, 0, 0, 0.6);
-      --color-container: #ffffff;
+      --color-bg: #000;
+      --color-overlay: rgba(0, 0, 0, 0.7);
+      --color-container: #fff;
       --color-primary: #e74c3c;
-      --color-light: #ffffff;
-      --color-text: #f4f4f4;
-      --max-width: 720px;
+      --color-light: #fff;
+      --color-text: #333;
+      --max-width: 760px;
       --radius: 8px;
-      --spacing: 16px;
+      --gutter: 16px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; }
     body {
-      background: url('https://frontlineheroesrelief.org/assets/crew gearing up.jpg') no-repeat center center/cover;
+      margin: 0;
+      padding: 0;
+      background: var(--color-bg) url('https://frontlineheroesrelief.org/assets/crew gearing up.jpg') no-repeat center center/cover;
       font-family: var(--font-base);
       color: var(--color-text);
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: var(--spacing);
+      /* Remove flex to allow content to naturally flow */
     }
     .overlay {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      position: fixed;
+      inset: 0;
       background: var(--color-overlay);
       z-index: 1;
     }
@@ -40,37 +39,39 @@
       background: var(--color-container);
       color: #333;
       max-width: var(--max-width);
-      width: 100%;
+      width: calc(100% - (var(--gutter) * 2));
+      margin: var(--gutter) auto;
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     }
     .hero {
       width: 100%;
+      height: auto;
       display: block;
     }
     .content {
-      padding: calc(var(--spacing) * 2);
+      padding: calc(var(--gutter) * 2);
       text-align: center;
     }
     h1 {
-      font-size: 2.25rem;
-      color: #222;
-      margin-bottom: var(--spacing);
-      line-height: 1.2;
+      font-size: 2rem;
+      margin-bottom: var(--gutter);
+      color: var(--color-text);
     }
     p {
+      margin-bottom: var(--gutter);
       font-size: 1rem;
-      margin-bottom: var(--spacing);
-      line-height: 1.6;
     }
     .list {
       text-align: left;
-      margin: var(--spacing) 0;
-      padding-left: calc(var(--spacing) * 1.5);
+      margin: var(--gutter) auto;
+      padding-left: calc(var(--gutter) * 1.5);
+      max-width: 90%;
     }
     .list li {
-      margin-bottom: var(--spacing);
+      margin-bottom: var(--gutter);
+      font-size: 1rem;
     }
     .cta {
       display: inline-block;
@@ -78,46 +79,47 @@
       color: var(--color-light);
       text-decoration: none;
       font-size: 1.125rem;
-      padding: 14px 36px;
+      padding: 14px 32px;
       border-radius: var(--radius);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      animation: pulse 2s infinite;
+      margin: var(--gutter) 0;
+      transition: transform 0.2s ease;
     }
     .cta:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.5);
-    }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
-      50% { box-shadow: 0 6px 16px rgba(231,76,60,0.6); }
     }
     .footer {
-      font-size: 0.875rem;
-      color: #777;
-      padding: var(--spacing);
+      background: #f9f9f9;
+      padding: var(--gutter);
       text-align: center;
-      background: #fafafa;
+      font-size: 0.875rem;
+      color: #666;
     }
     @media (max-width: 600px) {
-      h1 { font-size: 1.75rem; }
-      .cta { width: 100%; padding: 12px 0; }
+      h1 { font-size: 1.5rem; margin-bottom: calc(var(--gutter) * 0.75); }
+      p { font-size: 0.9rem; margin-bottom: calc(var(--gutter) * 0.75); }
+      .list { padding-left: var(--gutter); }
+      .cta { width: 100%; padding: 12px 0; font-size: 1rem; }
+      .content { padding: var(--gutter); }
+    }
+      .content { padding: var(--gutter); }
+      .list { padding-left: var(--gutter); }
+      .cta { width: 100%; padding: 12px 0; font-size: 1rem; }
     }
   </style>
 </head>
 <body>
   <div class="overlay"></div>
   <div class="container">
-    <img src="https://frontlineheroesrelief.org/assets/police community support.jpg" alt="Texas First Responders" class="hero">
+    <img src="https://frontlineheroesrelief.org/images/texas-responders.jpg" alt="Texas First Responders" class="hero">
     <div class="content">
       <h1>After Harvey’s Floods & Amarillo’s Wildfires, It’s Our Turn to Help</h1>
       <p>When Texas faced its darkest hours, our first responders ran toward the danger to save lives. Now they need relief and resources to recover.</p>
       <ul class="list">
-        <li>☑️ Rest & hydration kits for exhausted crews</li>
-        <li>☑️ Mental-health support & counseling</li>
-        <li>☑️ Replacement gear: helmets, radios, and protective clothing</li>
+        <li>Rest & hydration kits for exhausted crews</li>
+        <li>Mental-health support & counseling services</li>
+        <li>Replacement gear: helmets, radios & protective clothing</li>
       </ul>
-      <a href="https://square.link/u/ZrBbAr3C" class="cta">Send Relief Now</a>
+      <a href="https://frontlineheroesrelief.org/donate" class="cta">Send Relief Now</a>
     </div>
   </div>
   <div class="footer">
